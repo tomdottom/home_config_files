@@ -1,0 +1,66 @@
+[user]
+	name = Thomas Marks
+	email = thomas.o.marks@gmail.com
+[core]
+    editor = vim
+    pager = less
+    excludesfile = .gitignore
+
+[push]
+    default = current
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    pager = true
+    ui = auto
+
+[alias]
+    st = status -sb
+    standup = log --since '1 day ago' --oneline
+    unstage = reset HEAD
+    b = branch -v           # verbose branch
+    co = checkout
+    nb = checkout -b
+    d = diff
+    ds = diff --staged
+    l = log
+    log = log --decorate --graph --date=short
+    hist = log --pretty=format:\"%Cred%h %Cblue%ad %Creset| %s%d %Cgreen[%an]\" --graph --date=short
+    lgbw= log   --graph '--format=%h %ar %d %s'
+    lg  = log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s'
+    lga = log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all
+    #this is the most commonly used one, it turns out!
+    l19 = log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all -19
+    # and this one can be a real lifesaver on a complex tree
+    lsd = log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
+    # log left-right; requires argument like A...B (3 dots)
+    lglr= log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --boundary --left-right --cherry-pick
+    # compact colorized git log
+    com = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[rerere]
+    # Remember my merges 
+    # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    enabled = true
+
+[log]
+    color = true
+
+[status]
+color = auto
+
+[pager]
+color = true
+
+[diff] 
+    color = auto
+    rename = copy
+
+[http]
+    sslVerify = false
+
+[apply]
+    whitespace = strip
