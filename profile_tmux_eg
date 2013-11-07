@@ -1,0 +1,16 @@
+# ~/.profile: executed by Bourne-compatible login shells.
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n
+
+if which tmux 2>&1 >/dev/null; then
+    #if not inside a tmux session, and if no session is started, start a new session
+    if [ -z "$TMUX" ]; then
+        (tmux -2 attach -t `tmux ls -F "#{session_name} #{?session_attached,attached,not-attached}" | awk '$2=="not-attached" {print $1}' | head -n 1` || tmux -2 new-session)
+    fi
+fi
