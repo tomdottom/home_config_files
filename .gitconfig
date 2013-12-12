@@ -41,6 +41,7 @@
     lglr= log   --graph '--format=%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --boundary --left-right --cherry-pick
     # compact colorized git log
     com = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    dirlog = log --name-status ./
 
 [rerere]
     # Remember my merges 
